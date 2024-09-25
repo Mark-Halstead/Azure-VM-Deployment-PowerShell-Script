@@ -1,9 +1,9 @@
-# Set variables for the deployment
-$resourceGroupName = "powershell-testing"
-$location = "UKSouth"
-$vmName = "MyVM"
-$adminUsername = "azureuser"
-$adminPassword = "P@ssw0rd123!"  # Ensure you follow Azure's password policy
+# Set variables for the deployment using Read-Host
+$resourceGroupName = Read-Host "Enter the Resource Group Name"
+$location = Read-Host "Enter the Location (e.g., UKSouth)"
+$vmName = Read-Host "Enter the Virtual Machine Name"
+$adminUsername = Read-Host "Enter the Admin Username"
+$adminPassword = Read-Host -AsSecureString "Enter the Admin Password"  # This ensures the password is entered securely
 
 # Create a resource group if it doesn't exist
 if (-not (Get-AzResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue)) {
