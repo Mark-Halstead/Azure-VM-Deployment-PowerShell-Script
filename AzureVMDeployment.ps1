@@ -22,7 +22,7 @@ if ($azResourceGroup -ne $null) {
 # public IP address creation
 
 $publicIp = Get-AzPublicIpAddress -ResourceGroupName $resourceGroupName -Name "$vmName-PublicIP" -ErrorAction SilentlyContinue
-if (publicIp -ne $null) {
+if ($publicIp -ne $null) {
     Write-Host "Public IP already exists"
 } else {
     Write-Host "Creating publc IP...."
